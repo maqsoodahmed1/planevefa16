@@ -5,7 +5,7 @@ var mongoose  = require('mongoose');
 
 
 
-router.get('/index', (req, res) => {
+router.get('/', (req, res) => {
 
     res.render('admin/venues');
 });

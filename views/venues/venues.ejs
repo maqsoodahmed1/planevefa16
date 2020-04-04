@@ -124,59 +124,7 @@
 
 <body class="sections-page sidebar-collapse">
 
-        <nav class="navbar navbar-expand-lg navbar-transparent bg-primary navbar-absolute" style="border-bottom: 1px solid rgba(216, 216, 216, 0.3);;">
-                <div class="container">
-                    <div class="navbar-translate">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-bar bar1"></span>
-                            <span class="navbar-toggler-bar bar2"></span>
-                            <span class="navbar-toggler-bar bar3"></span>
-                        </button>
-                        <a class="navbar-brand mr-5"  href="/index.html"><img src="https://scontent.fkhi16-1.fna.fbcdn.net/v/t1.15752-9/78576062_2214312852204385_8545864323417767936_n.png?_nc_cat=105&_nc_eui2=AeGCOuCczxThHyv3olb4AtNhesp5ul5y3nUl8fg7b7GeUz8Xc0KyR4Lgrn-5-ZWfbyOKUsxvUxP0xmvSBCAZxr5av2cA3FWaYNps6W6aDfm_gA&_nc_ohc=xJWZQprgJHIAQkFMoPLSInVAaPXZnViPLnG0apOurayOQVaZ7uO-mPDoA&_nc_ht=scontent.fkhi16-1.fna&oh=103ddef5294b3fcf0a1806c7bb9d8d9f&oe=5E6A4FD1" alt=""></a>
-
-                    </div>
-        
-                    <div class="collapse navbar-collapse">
-                        <ul class=" navbar-nav mx-auto">
-                           
-                        </ul>
-        
-                        <ul class="nav navbar-nav navbar-right">
-        
-        
-        
-        
-                                        <li class="nav">
-                                            <a class="nav-link mt-1" style="font-size: 20px; letter-spacing: 4px; font-family: inherit; font-weight: 500;"  href="./askvenue.html" >
-                                                <i class="far fa-user"></i>   Ask A Venue expert &nbsp;&nbsp;&nbsp;&nbsp;
-                                            </a>
-                                            </li>
-
-                                            <li class="nav">
-                                                <a class="nav-link mt-1" style="font-size: 20px; letter-spacing: 3px; font-family: inherit; font-weight: 500;"  href="./venues.html" >
-                                                       Venues&nbsp;&nbsp;&nbsp;&nbsp;
-                                                </a>
-                                                </li>
-        
-        
-                                            <li class="nav-item">
-        
-                                                <a  href="#loginmodal" data-toggle="modal" style="color: white;">
-                                                    <button onclick="checkauth()" class="btnnav" type="button" style="font-size: 20px; text-transform: uppercase;" >Venue Login</button>
-                                                  </a>
-                                            </li>
-                                </ul>
-        
-                    </div>
-                    
-                </div>
-            </nav>
-        
-                 
-
-    
-         
-
+    <%- include ("../partials/navbar") %>
 
     <div class="wrapper">
     <div class="page-header page-header-small">
@@ -272,7 +220,7 @@
         <label for="Pricing">Pricing</label>
           
     <div id="sliderr"></div>
-    <script src="slider.js"></script>
+    <!-- <script src="slider.js"></script> -->
     
   </form>
   <br>
@@ -284,7 +232,7 @@
 
 
 
-  <script src="advancefilters.js"></script>
+  <!-- <script src="advancefilters.js"></script> -->
 
   </div>
 </div>
@@ -311,9 +259,34 @@
 
 
                     <div class="row"  id="venuescards" >
-                      
+                        <% venues.forEach(element => {%>
+                         <div class="col-md-4">
+                            <div class="card card-blog">
+                                <div class="card-image">
+                                    <a href="venues/<%=element._id%>">
+                                        <img style="cursor:pointer"  src="/<%= element.image %>"  class="img rounded"/>
+                                    </a>
+                                </div>
+            
+                                <div class="card-body">
+                                    <h6 class="category text-primary"><%= element.venueName %></h6>
+                                    <h6 class="category text-primary"><%= element.venueCity %></h6>
+
+                                    <p class="card-description">
+                                            <%= element.venueDescription %>
+                                    </p>
+                                    <div class="card-footer">
+                                      
+                                     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         
 
+                          <% }) %>
+                          
+                        
     
                     </div>
                 </div>
@@ -325,155 +298,14 @@
 
     <!--     *********    END BLOGS 5      *********      -->
     
-    <div id="venlogin"></div>
-    <script src="venuelogin.js"></script>
 
-    <div id="modl"></div>
-    <script src="contact.js"></script>
-    
-    <footer class="footer footer-big" data-background-color="black">
-            <div class="container">
-        
-                <div class="content">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <h5>Event Categories</h5>
-                            <ul class="links-vertical">
-                                <li>
-                                    <a href="#pablo" class="text-muted">
-                                     Meetings
-                                 </a>
-                             </li>
-                             <li>
-                                <a href="#pablo" class="text-muted">
-                                 Conferences
-                             </a>
-                         </li>
-                         <li>
-                            <a href="#pablo" class="text-muted">
-                               Events
-                           </a>
-                       </li>
-                       <li>
-                        <a href="#pablo" class="text-muted">
-                           Private dinings
-                       </a>
-                   </li>
-               </ul>
-           </div>
-           <div class="col-md-2">
-            <h5>Planeve</h5>
-            <ul class="links-vertical">
-                    <li>
-                            <a href="./eventsuppliers.html" class="text-muted">
-                            Event Suppliers
-                         </a>
-                    </li>
-                    <li>
-                            <a href="./whylistvenue.html" class="text-muted">
-                            List Venues
-                         </a>
-                        </li>
-                <li>
-                    <a href="#pablo" class="text-muted">
-                     Venue Finder
-                 </a>
-             </li>
-             <li>
-                <a href="#pablo" class="text-muted">
-                   How to Register
-               </a>
-           </li>
-           <li>
-            <a href="#pablo" class="text-muted">
-             Register Venue
-         </a>
-        </li>
-        <li>
-            <a href="#pablo" class="text-muted">
-              Blog
-           </a>
-        </li>
-        <li>
-            <a href="#pablo" class="text-muted">
-               Policies
-           </a>
-        </li>
-        <li>
-            <a href="#pablo" class="text-muted">
-               Affiliates Program
-           </a>
-        </li>
-        </ul>
-        </div>
-        
-        <div class="col-md-4">
-            <h5>Social Feed</h5>
-            <div class="social-feed">
-                <div class="feed-line">
-                    <i class="fab fa-twitter"></i>
-                    
-                </div>
-                <div class="feed-line">
-                    <i class="fab fa-twitter"></i>
-                    
-                </div>
-                <div class="feed-line">
-                    <i class="fab fa-facebook-square"></i>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-md-4">
-            <h5>Follow Us</h5>
-            <ul class="social-buttons">
-                <li>
-                    <a href="#pablo" class="btn btn-icon btn-neutral btn-twitter btn-round">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#pablo" class="btn btn-icon btn-neutral btn-facebook btn-round">
-                        <i class="fab fa-facebook-square"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#pablo" class="btn btn-icon btn-neutral btn-dribbble btn-round">
-                        <i class="fab fa-dribbble"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#pablo" class="btn btn-icon btn-neutral btn-google btn-round">
-                        <i class="fab fa-google-plus"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#pablo" class="btn btn-icon btn-neutral btn-instagram btn-round">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                </li>
-            </ul>
-        
-            <h5><small>Numbers Don't Lie</small></h5>
-            <h5>14.521 <small class="text-muted">Freelancers</small></h5>
-            <h5>1.423.183 <small class="text-muted">Transactions</small></h5>
-        </div>
-        </div>
-        </div>
-        
-        <hr />
-        
-        <div class="copyright">
-            Copyright &copy;
-            <script type="text/javascript">
-                document.write(new Date().getFullYear());
-            </script> PlanEve All Rights Reserved.
-        </div>
-        </div>
-        </footer>
-    
 
+    <%- include ("../partials/authmodals") %>
+    <%- include ("../partials/footer") %>
+
+
+    
+    
 
 
 

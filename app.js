@@ -19,6 +19,10 @@ mongoose.connect('mongodb://localhost/planeve', {
 const users = require('./routes/users');
 const venues = require('./routes/venues')
 const admin = require('./routes/admin/index')
+const referal = require('./routes/admin/referal')
+const features = require('./routes/admin/features')
+const booking = require('./routes/booking')
+const superAdmin = require('./routes/superadmin/index')
 
 // Passport Config
 require('./config/passport')(passport);
@@ -82,6 +86,10 @@ app.get('/about', (req, res) => {
 app.use('/users', users);
 app.use('/venues',venues)
 app.use('/admin',admin)
+app.use('/referal',referal)
+app.use('/features',features)
+app.use('/booking',booking)
+app.use('/superadmin',superAdmin)
 
 const port = 5000;
 app.listen(port, () => {

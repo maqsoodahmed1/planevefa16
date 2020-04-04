@@ -125,54 +125,10 @@
 
  <!--     *********     HEADER 2      *********      -->
 
- <div class="header-2">        
-        <nav class="navbar navbar-expand-lg navbar-transparent bg-primary navbar-absolute" style="border-bottom: 1px solid rgba(216, 216, 216, 0.3);;">
-            <div class="container">
-                <div class="navbar-translate">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-bar bar1"></span>
-                        <span class="navbar-toggler-bar bar2"></span>
-                        <span class="navbar-toggler-bar bar3"></span>
-                    </button>
-                    <a class="navbar-brand mr-5"  href="/index.html"><img src="https://scontent.fkhi16-1.fna.fbcdn.net/v/t1.15752-9/78576062_2214312852204385_8545864323417767936_n.png?_nc_cat=105&_nc_eui2=AeGCOuCczxThHyv3olb4AtNhesp5ul5y3nUl8fg7b7GeUz8Xc0KyR4Lgrn-5-ZWfbyOKUsxvUxP0xmvSBCAZxr5av2cA3FWaYNps6W6aDfm_gA&_nc_ohc=xJWZQprgJHIAQkFMoPLSInVAaPXZnViPLnG0apOurayOQVaZ7uO-mPDoA&_nc_ht=scontent.fkhi16-1.fna&oh=103ddef5294b3fcf0a1806c7bb9d8d9f&oe=5E6A4FD1" alt=""></a>
-                </div>
-    
-                <div class="collapse navbar-collapse">
-                    <ul class=" navbar-nav mx-auto">
-                       
-                    </ul>
-    
-                    <ul class="nav navbar-nav navbar-right">
-    
-    
-    
-    
-                                    <li class="nav">
-                                        <a class="nav-link mt-1" style="font-size: 20px; letter-spacing: 3px; font-family: inherit; font-weight: 500;"  href="./askvenue.html" >
-                                            <i class="far fa-user"></i>   Ask A Venue expert &nbsp;&nbsp;&nbsp;&nbsp;
-                                        </a>
-                                        </li>
-                                        <li class="nav">
-                                            <a class="nav-link mt-1" style="font-size: 20px; letter-spacing: 3px; font-family: inherit; font-weight: 500;"  href="./venues.html" >
-                                                   Venues&nbsp;&nbsp;&nbsp;&nbsp;
-                                            </a>
-                                            </li>
-    
-    
-                                        <li class="nav-item">
-    
-                                                <a  href="#loginmodal" data-toggle="modal" style="color: white;">
-                                                    <button onclick="checkauth()"  class="btnnav" type="button" style="font-size: 20px; text-transform: uppercase;" >Venue Login</button>
-                                                  </a>
-                                        </li>
-                            </ul>
-    
-                </div>
-                
-            </div>
-        </nav>
-    
-    
+ <div class="header-2">
+
+
+    <%- include ("partials/navbar") %>
         <div class="page-header header-filter">
             <div class="page-header-image" style="background-image: url('https://images.unsplash.com/photo-1468359601543-843bfaef291a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80');"></div>
             <div class="container">
@@ -185,7 +141,7 @@
                         <div class="col-md-10 ml-auto mr-auto">
                             <div class="card card-raised card-form-horizontal card-plain" data-background-color>
                                 <div class="card-body">
-                                    <form method="" action="">
+                                    <form method="POST" action="/venues/bodysearch">
                                         <div class="row">
                                             <div class="col-md-3">
                                                     <div class="form-group" style="margin: 0;
@@ -193,7 +149,7 @@
                                                     border-radius: 9px;
                                                     padding: 4px;
                                                     border-radius: 9px !important;">
-                                                            <input id="inputcity" style="color: black;" placeholder="Cities" list="browsers"  class="form-control" />
+                                                            <input id="inputcity" style="color: black;" name="venueCity" placeholder="Cities" list="browsers"  class="form-control" />
                                                             <datalist id="browsers">
                                                                 <option value="Karachi">
                                                                 <option value="Lahore">
@@ -209,7 +165,7 @@
                                                     border-radius: 9px;
                                                     padding: 4px;
                                                     border-radius: 9px !important;">
-                                                            <input  style="color: black;" id="inputtype"  placeholder="Type of event" list="browse"   class="form-control" />
+                                                            <input  style="color: black;" id="inputtype"  name="venueType" placeholder="Type of event" list="browse"   class="form-control" />
                                                             <datalist id="browse">
                                                                     <option value="Wedding">
                                                                     <option value="Party">
@@ -238,7 +194,7 @@
                                                         <div class="datepicker-container">
                                                     <!-- <input type="text" placeholder="Password" class="form-control date-Picker" value="10/05/2016" autocomplete="current-password" /> -->
                                                     <!-- <input  style="color: black;" type="number" class="form-control" id="inputnumberofpeople" value="number of people"/> -->
-                                                    <input id="inpcountry" style="color: black;"  list="country" placeholder="Country"  class="form-control inpt" />
+                                                    <input id="inpcountry" style="color: black;"  name="venueCountry" list="country" placeholder="Country"  class="form-control inpt" />
                                                     
                                                     <datalist id="country">
                                                         <option value="pakistan">
@@ -250,7 +206,7 @@
                                           
                                             
                                             <div class="col-md-3" >
-                                               <a href="/post" > <button  type="button"  onclick="indexsearch()"  style=" border-radius: 9px; padding: 14px;" class="btn btn-primary  btn-block">Search</button></a>
+                                               <a > <button  type="submit"    style=" border-radius: 9px; padding: 14px;" class="btn btn-primary  btn-block">Search</button></a>
                                             </div>
                                         </div>
                                     </form>
@@ -582,381 +538,10 @@
 
 
     <!-- model start -->
+    <%- include ("partials/authmodals") %>
+    <%- include ("partials/footer") %>
+
  
-
-    <div class="modal" id="loginmodal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-full" role="document">
-            <div class="modal-content ">
-                <div class="modal-header mdl col-md-6">
-                  
-                    <h1 class="modal-title ">
-                      Login</h1>
-                   
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <h3><span aria-hidden="true"><i class="fas fa-times-circle"></i></span></h3>
-                    </button>
-                    
-                </div>
-                <div class="col-md-6 mdl " style="size: 5px;" >
-                
-               <hr style="height:1px;border:none;color:#333;background-color:#333;" />
-               <form action="/users/login" method="post" > 
-           <br>
-                  <div class="">
-        <div class="row text-left">
-         
-          <div class="form-group col-md-12 " style="margin-left:0px;margin-right: 0px;  width: 27.5%;">
-            <label for="inputPassword4">Email Address</label>
-            <input type="email" name="email" id = 'lemail' class="form-control inputborder" id="inputPassword4">        
-          
-          </div>
-          <div class="form-group col-md-12 " style="margin-left:0px;margin-right: 0px;  width: 27.5%;">
-            <label for="inputPassword4">password</label>
-            <input type="password" name="password" id = 'lpass' class="form-control inputborder" id="inputPassword4">        
-            <input style=" text-decoration: none; " type="submit" class="btn btn-primary col-md-12" value="save">
-          </div>
-        </div>
-       
-        <a href="#forgetmodal"  data-dismiss="modal" data-toggle='modal'>forget password?</a>
-        </br>
-        <a href="#createaccountmodal" data-dismiss="modal"  data-toggle='modal'>create account?</a>
-        <br>
-        <br>
-       <!-- {{!-- <a style=" text-decoration: none; " class="btn btn-primary col-md-12" href="#"onclick = 'login()' >Login</a>  --}} -->
-       
-
-        
-
-         <!-- <button onclick = 'login()'  class="btn btn-primary col-md-12" >Login</button> -->
-
-
-
-    </div>
-    
-     
-    
- 
-  
-      </form>
-   
-
-
-
-                </div>
-           
-            </div>
-        </div>
-
-    </div> <!-- model end -->
-    
-
-
-    <!-- booking details -->
-<div class="space-70"></div>
-    <!--booking end  -->
-
-
-    <!-- model start -->
- 
-
-    <div class="modal" id="createaccountmodal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-full" role="document">
-            <div class="modal-content ">
-                <div class="modal-header mdl col-md-6">
-                  
-                    <h1 class="modal-title ">
-                      signup</h1>
-                   
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <h3><span aria-hidden="true"><i class="fas fa-times-circle"></i></span></h3>
-                    </button>
-                    
-                </div>
-                <div class="col-md-6 mdl " style="size: 5px;" >
-                
-               <hr style="height:1px;border:none;color:#333;background-color:#333;" />
-
-
-               <form action="/users/register" method="post">
-           <br>
-                  <div class="">
-        <div class="row text-left">
-       
-          <div class="form-group col-md-12 " style="margin-left:0px;margin-right: 0px;  width: 27.5%;">
-            <label for="inputPassword4">Full Name</label>
-            <input type="text" id='name' name="name" class="form-control inputborder" id="inputPassword4">        
-          
-          </div>
-          <div class="form-group col-md-12 " style="margin-left:0px;margin-right: 0px;  width: 27.5%;">
-            <label for="inputPassword4">Email Address</label>
-            <input type="email" id = 'usemail' name="email" class="form-control inputborder" id="inputPassword4">        
-          
-          </div>
-          <div class="form-group col-md-12 " style="margin-left:0px;margin-right: 0px;  width: 27.5%;">
-            <label for="inputPassword4">password</label>
-            <input type="password" id='uspass' name="password" class="form-control inputborder" id="inputPassword4">        
-          
-          </div>
-          <div class="form-group col-md-12 " style="margin-left:0px;margin-right: 0px;  width: 27.5%;">
-          <label for="inputPassword4">confirm password</label>
-          <input type="password" name="confirmPassword" class="form-control inputborder" id="inputPassword4">        
-        
-        </div>
-
-    
-
-        </div>
-       
-        <a href="#forgetmodal" data-dismiss="modal" data-toggle='modal'>forget password?</a>
-        </br>
-        <a href="#loginmodal" data-dismiss="modal"  data-toggle='modal'>Login</a>
-        <input type="submit" style=" text-decoration: none; "  class="btn btn-primary col-md-12" value="save"> 
-
-
-    </div>
-    
-     
-    
- 
-  
-      </form >
-   
-
-
-
-                </div>
-           
-            </div>
-        </div>
-
-    </div> <!-- model end -->
-
-
-    
-<!-- booking details -->
-<div class="space-70"></div>
-    <!--booking end  -->
-
-
-    <!-- model start -->
- 
-
-    <div class="modal" id="forgetmodal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-full" role="document">
-            <div class="modal-content ">
-                <div class="modal-header mdl col-md-6">
-                  
-                    <h1 class="modal-title ">
-                      Reset password</h1>
-                   
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <h3><span aria-hidden="true"><i class="fas fa-times-circle"></i></span></h3>
-                    </button>
-                    
-                </div>
-                <div class="col-md-6 mdl " style="size: 5px;" >
-                
-               <hr style="height:1px;border:none;color:#333;background-color:#333;" />
-               <form>
-           <br>
-                  <div class="">
-        <div class="row text-left">
-        
-         
-          <div class="form-group col-md-12 " style="margin-left:0px;margin-right: 0px;  width: 27.5%;">
-            <label for="inputPassword4">Enter your Email to reset</label>
-            <input type="email" class="form-control inputborder" id="inputPassword4">        
-          
-          </div>
-         
-          
-        
-        
-        </div>
-        </div>
-        </br>
-        <a href="#createaccountmodal" data-dismiss="modal"  data-toggle='modal'>create account?</a>
-        </br>
-        <a href="#loginmodal" data-dismiss="modal"  data-toggle='modal'>login</a>
-
-
-        
-
-         <button  class="btn btn-primary col-md-12">Reset</button>
-
-
-
-    </div>
-    
-     
-    
- 
-  
-      </form>
-   
-
-
-
-                </div>
-           
-            </div>
-        </div>
-
-    </div> <!-- model end -->
-
-
-       <!-- copyend -->
-        
-    
-    
-
-
-        <footer class="footer footer-big" data-background-color="black">
-                <div class="container">
-            
-                    <div class="content">
-                        <div class="row">
-                            <div class="col-md-2">
-                                <h5>Event Categories</h5>
-                                <ul class="links-vertical">
-                                    <li>
-                                        <a href="#pablo" class="text-muted">
-                                         Meetings
-                                     </a>
-                                 </li>
-                                 <li>
-                                    <a href="#pablo" class="text-muted">
-                                     Conferences
-                                 </a>
-                             </li>
-                             <li>
-                                <a href="#pablo" class="text-muted">
-                                   Events
-                               </a>
-                           </li>
-                           <li>
-                            <a href="#pablo" class="text-muted">
-                               Private dinings
-                           </a>
-                       </li>
-                   </ul>
-               </div>
-               <div class="col-md-2">
-                <h5>Planeve</h5>
-                <ul class="links-vertical">
-                    <li>
-                        <a href="./eventsuppliers.html" class="text-muted">
-                        Event Suppliers
-                     </a>
-                 </li>
-                 <li>
-                        <a href="./whylistvenue.html" class="text-muted">
-                        List Venues
-                     </a>
-                    </li>
-                    <li>
-                        <a href="#pablo" class="text-muted">
-                         Venue Finder
-                     </a>
-                 </li>
-                 <li>
-                    <a href="#pablo" class="text-muted">
-                       How to Register
-                   </a>
-               </li>
-               <li>
-                <a href="#pablo" class="text-muted">
-                 Register Venue
-             </a>
-            </li>
-            <li>
-                    <a href="whylistvenue.html" class="text-muted">
-                     List Venue
-                 </a>
-                </li>
-            <li>
-                <a href="#pablo" class="text-muted">
-                  Blog
-               </a>
-            </li>
-            <li>
-                <a href="#pablo" class="text-muted">
-                   Policies
-               </a>
-            </li>
-            <li>
-                <a href="#pablo" class="text-muted">
-                   Affiliates Program
-               </a>
-            </li>
-            </ul>
-            </div>
-            
-            <div class="col-md-4">
-                <h5>Social Feed</h5>
-                <div class="social-feed">
-                    <div class="feed-line">
-                        <i class="fab fa-twitter"></i>
-                        
-                    </div>
-                    <div class="feed-line">
-                        <i class="fab fa-twitter"></i>
-                        
-                    </div>
-                    <div class="feed-line">
-                        <i class="fab fa-facebook-square"></i>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4">
-                <h5>Follow Us</h5>
-                <ul class="social-buttons">
-                    <li>
-                        <a href="#pablo" class="btn btn-icon btn-neutral btn-twitter btn-round">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#pablo" class="btn btn-icon btn-neutral btn-facebook btn-round">
-                            <i class="fab fa-facebook-square"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#pablo" class="btn btn-icon btn-neutral btn-dribbble btn-round">
-                            <i class="fab fa-dribbble"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#pablo" class="btn btn-icon btn-neutral btn-google btn-round">
-                            <i class="fab fa-google-plus"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#pablo" class="btn btn-icon btn-neutral btn-instagram btn-round">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </li>
-                </ul>
-            
-                <h5><small>Numbers Don't Lie</small></h5>
-                <h5>14.521 <small class="text-muted">Freelancers</small></h5>
-                <h5>1.423.183 <small class="text-muted">Transactions</small></h5>
-            </div>
-            </div>
-            </div>
-            
-            <hr />
-            
-            <div class="copyright">
-                Copyright &copy;
-                <script type="text/javascript">
-                    document.write(new Date().getFullYear());
-                </script> PlanEve All Rights Reserved.
-            </div>
-            </div>
-            </footer>
 
 
 

@@ -45,6 +45,13 @@ const venueInfo = mongoose.model('Venue',new Schema({
     createdUser:{
         type:Schema.Types.ObjectId,
         ref:"users"
+    },
+    features:{
+      type:Array  
+    }
+    ,
+    allowedEvents:{
+        type:Array
     }
 }));
 
@@ -52,7 +59,6 @@ const venueInfo = mongoose.model('Venue',new Schema({
 
 
 validateSchema = (venue) =>{
-
         const schema = {
             venueName:joi.string().min(5).max(25).required(),
             venueAddress:joi.string().min(5).max(25).required(),
