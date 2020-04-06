@@ -26,7 +26,10 @@ router.post('/booking',async(req,res)=>{
     const booking = new Booking(
         _.pick(req.body,["bookedVenue","dateOfViewing","fullName","emailAddress","PhoneNumber","eventType","eventDate","numberOfGuests"])
     )
-        
+
+ 
+
+       
 let transporter = nodemailer.createTransport({
     service:'gmail',
     auth:{
@@ -41,18 +44,24 @@ let mailOptions = {
     from:'maqsooddbaloch@gmail.com',
     to:req.body.emailAddress,
     subject:'Booking Information',
-    text:'We have recieved your query for booking we will contact you soon.'
+    text:`We have recieved your query for booking we will contact you soon. your booking id = ${booking._id}`
 }
 
 
-transporter.sendMail(mailOptions,function(err,data){
+transporter.sendMail (mailOptions,async function(err,data){
     if(err)
     {
         res.send(err)
     }
     else{
+        const venue = await venueSchema.findById(booking.bookedVenue)
+        venue.bookings.push(booking._id)
+       
+        await venue.save()
         booking.save()
-        res.send(booking)
+        res.send(`booking = ${booking} 
+            and venue id = ${venue.bookings}
+        `)
     }
 })
 

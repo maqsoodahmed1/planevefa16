@@ -471,8 +471,9 @@
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
+                        <% venues.forEach(element => {%>
                         <tr>
-                            <td id="detailinfo">Kashana</td>
+                            <td id="detailinfo"><%= element.venueName %></td>
                             
                               <td><button class="btn btn-primary" data-toggle="modal" data-target="#noticeModal1">
                               View
@@ -487,7 +488,7 @@
                                 Delete
                               </button></td>
                             </tr>
-                        
+                         <% }) %>
                         <tr>
                             <td>TajMahal</td>
                               <td><button class="btn btn-primary" data-toggle="modal" data-target="#noticeModal1">
@@ -623,9 +624,11 @@
                             </tr>
                         </thead>
                         <tbody>
+                          <% referals.forEach(element =>  {%>
+
                             <tr>
                                 <td>
-                                    Maqsood Ahmed
+                                  <%= element.customerName %>
                                 </td>
                                 <td><button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg2">
                                     View Request
@@ -642,6 +645,8 @@
                                </button></td>
                          
                             </tr>
+                           <% }) %>
+
                             <tr>
                                 <td>
                                     Danish Ali
@@ -739,41 +744,31 @@
                             </tr>
                         </thead>
                         <tbody>
+                      
+
+
+
+                                <% bookings.forEach(element => {%>
+                                 
+
                             <tr>
-                                <td>Kashana</td>
-                                
-                                  <td><button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg1">
-                                  View Request
-                                  </button></td>
-                                  
-                                
-                                <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#forwardRequest">
-                                    Forward Request
-                                  </button></td>
-                                
-                                <td><button class="btn btn-warning" type="button" data-toggle="modal" data-target="#rejectRequest">
-                                    Reject Request
-                                  </button></td>
-                                </tr>
-                            
-                            <tr>
-                                <td>TajMahal</td>
-                                  <td><button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg1">
-                                  View Request
-                                  </button></td>
-                                  
-                                
-                                <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#forwardRequest">
-                                    Forward Request
-                                  </button></td>
-                            
-                                <td>
-                                  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#rejectRequest">
-                                    Reject Request
-                                  </button>
-                                </td>
-                         </tr>
-    
+                              <td><%= element.bookedVenue.venueName%></td>
+                              
+                                <td><button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg1">
+                                View Request
+                                </button></td>
+                              
+                              <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#forwardRequest">
+                                  Forward Request
+                                </button></td>
+                              
+                              <td><button class="btn btn-warning" type="button" data-toggle="modal" data-target="#rejectRequest">
+                                  Reject Request
+                                </button></td>
+                              </tr>
+                                   <% }) %>
+                                 
+                         
                             
                         </tbody>
                     </table>

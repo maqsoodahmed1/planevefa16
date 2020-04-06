@@ -53,7 +53,17 @@ const venueInfo = mongoose.model('Venue',new Schema({
     allowedEvents:{
         type:Array
     }
-}));
+    ,bookings:[
+        {
+        type:Schema.Types.ObjectId,
+        ref:"Booking"
+        }
+    ],
+}
+,{
+    usePushEach:true
+}
+));
 
 
 
