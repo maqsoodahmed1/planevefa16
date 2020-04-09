@@ -134,6 +134,9 @@
             </style>
     <link rel="stylesheet" href="/assets/css/style.css">
             <link rel="stylesheet" href="/assets/css/nav.css">
+            <link rel="stylesheet" href="/assets/css/datetimepicker.css">
+            <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
 
     <!-- Visual Inspector Plugin -->
     <script type="text/javascript">
@@ -168,8 +171,10 @@
         })(window, document, 'script', 'dataLayer', 'GTM-NKDMSK6');
     </script>
     <!-- End Google Tag Manager -->
-
-
+    <!-- [1 - LOAD THE LIBRARIES] -->
+    <link href="/assets/css/picker-dark.css" rel="stylesheet">
+    <script src="/assets/js/datepicker.js"></script>
+   
 </head>
 
 <body class="sections-page sidebar-collapse">
@@ -482,14 +487,32 @@
 
             <br>
 
-            <div style="
-            border-radius: 3px; background-color: #fff; color: #939699;" class="container" >
-                <h5 style="padding: 8px; color: #4e833c;;">More about  Museum of London Docklands</h5>
-                <p style="padding: 8px; font-size: 10px; line-height: 20px; font-weight: 700; margin-top: -20px;">The Museum of London Docklands traces the 2000 year history of London’s river, port and people,
-                     from the arrival of the Romans to the rise of Canary Wharf. It is located over five floors within a
-                      splendid late Georgian warehouse and is Canary 
-                    Wharf’s only Grade 1 listed venue. The Museum offers outstanding settings for meetings and events.</p>
-                    <br>
+            <div style=" border-radius: 3px; color: #939699;" class="container" >
+                <h3 style="padding: 8px; color: #4e833c; text-align: center; font-weight: 900; margin: 0;">Select Your Event Date</h3>
+                <div class="wrapper">
+                    <br />
+                    <div class="container">
+                      <div class="row">
+                          <div class='col-sm-12'>
+                              <div class="form-group">
+                                  <div class='datetimepicker'></div>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                <!-- <div id='datetimepicker'></div> -->
+
+                <!------ Include the above in your HEAD tag ---------->
+                <h1>Inline Date Picker</h1>
+                <!-- [2 - DEFINE YOUR TEXT INPUT + CONTAINER] -->
+                <input type="text" id="input-inline"/>
+                <br><br>
+                <div id="pick-inline"></div>
+                
+                <br>
                     <div style="margin-top:-20px;" class="send-button">
                             <a href="#pablo" style="background-color: #eee; color: #646464;" class="btn   btn-block btn-lg"> See All spaces Here</a>
                     </div>
@@ -585,7 +608,7 @@
 <script src="/assets/js/core/jquery.min.js" type="text/javascript"></script>
 <script src="/assets/js/core/popper.min.js" type="text/javascript"></script>
 <script src="/assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-
+<script src="/assets/js/datetimepicker.js"></script>
 <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
 <script src="/assets/js/plugins/bootstrap-switch.js"></script>
 
@@ -802,6 +825,14 @@
     <script src="firebase/avatardetails.js"></script>
     <script src="firebase/logout.js"></script>
     <!-- <script src="firebase/referaldata.js"></script> -->
+
+
+    <script>
+        window.addEventListener("load", function(){
+          // container + target input
+          picker.attach("pick-inline", "input-inline");
+        });
+      </script>
 
 </body>
 
