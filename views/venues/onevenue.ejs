@@ -342,6 +342,11 @@
                            
                             <p style="font-size: 12px; margin-top: -15px;"><i class="fas fa-check"></i><%= element%></p>
 
+                                        <script>
+                                        
+                                        console.log(`the data => <%= element %>`)
+                                        
+                                        </script>
                             <% })%>
 
                             
@@ -502,15 +507,48 @@
                     </div>
                   </div>
 
+                
+                    <script>
+                        window.addEventListener('load', function() {
+
+                            document.getElementsByClassName('prev')[0].setAttribute("onClick","bookedDates()")
+                            
+                            //         var ele = document.querySelector('[data-day="04/26/2020"]')
+                            // ele.children[0].style.backgroundColor = 'blue'
+                            bookedDates = () =>{
+                                var elem = document.querySelector('[data-day="03/26/2020"]')
+                        //     elem.children[0].style.backgroundColor = 'blue'
+                        //  console.log('the date is updated') 
+                        console.log('elem=>',elem)
+
+
+                            }
+                                
+                           
+                        // }
+                        })
+                      
+                      
+                    </script>
+                    
+
+
+                  <!-- <script>
+                // var element =  $('[data-day="04/12/2020"]')
+                // console.log('element =>',element)
+                var element = document.querySelectorAll('[data-day="04/12/2020"]')
+                console.log('element=>',element.values())
+                      console.log('maqsood')
+                  </script> -->
 
                 <!-- <div id='datetimepicker'></div> -->
 
                 <!------ Include the above in your HEAD tag ---------->
-                <h1>Inline Date Picker</h1>
+                <!-- <h1>Inline Date Picker</h1> -->
                 <!-- [2 - DEFINE YOUR TEXT INPUT + CONTAINER] -->
-                <input type="text" id="input-inline"/>
+                <!-- <input type="text" id="input-inline"/>
                 <br><br>
-                <div id="pick-inline"></div>
+                <div id="pick-inline"></div> -->
                 
                 <br>
                     <div style="margin-top:-20px;" class="send-button">

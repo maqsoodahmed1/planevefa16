@@ -91,7 +91,7 @@ app.use('/features',features)
 app.use('/booking',booking)
 app.use('/superadmin',superAdmin)
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 2000;
 app.listen(port, () => {
     console.log(`Server started on port http://localhost:${port}`);
 });

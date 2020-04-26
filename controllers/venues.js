@@ -33,9 +33,16 @@ exports.body_search = async (req, res) => {
 }
 
 exports.get_single_venue = async(req,res)=>{
-    let venues = await venueSchema.findById(req.params.id)
+  let bookedDates = []
+    let venues = await venueSchema.findById(req.params.id).populate('bookings')
+    venues.bookings.forEach(data=>{
+     bookedDates.push(data.dateOfViewing)
+    })
+    // console.log('bookedEvents => ',bookedDates)
+    // res.send(venues.bookings)
    res.render('venues/onevenue',{
-     venues:venues
+     venues:venues,
+     bookedDates
    })
  }
 
