@@ -65,6 +65,9 @@ consideration:{
 createdUser:{
     type:Schema.Types.ObjectId,
     ref:'users'
+},
+status:{
+    type:Number
 }
 
 }))

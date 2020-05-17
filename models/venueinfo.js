@@ -59,6 +59,15 @@ const venueInfo = mongoose.model('Venue',new Schema({
         ref:"Booking"
         }
     ],
+    approvedBooking:[
+        {
+            type:Schema.Types.ObjectId,
+            ref:"Booking"
+        }
+    ],
+    status:{
+        type:Number
+    }
 }
 ,{
     usePushEach:true

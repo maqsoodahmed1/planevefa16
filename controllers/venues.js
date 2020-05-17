@@ -75,7 +75,7 @@ exports.get_venue_by_category = async(req,res)=>{
               updateVenue.venueNearest = req.body.venuenearest
               updateVenue.venueDescription = req.body.venuedescription
   
-  
+
              await updateVenue.save()
              res.send(updateVenue)
      
@@ -157,7 +157,8 @@ exports.get_venue_by_category = async(req,res)=>{
           createdUser:req.user._id,
           image:file,
           features,
-          allowedEvents
+          allowedEvents,
+          status:false
         })
         const userid = req.user._id
        

@@ -13,7 +13,8 @@ router.get('/bookingvenue/:id',async(req,res)=>{
     const venue = await venueSchema.findById(req.params.id)
 
     res.render('venues/bookvenue',{
-        venue:venue
+        venue:venue,
+        message:req.flash('message')
     })
 })
 
@@ -59,9 +60,11 @@ transporter.sendMail (mailOptions,async function(err,data){
        
         await venue.save()
         booking.save()
-        res.send(`booking = ${booking} 
-            and venue id = ${venue.bookings}
-        `)
+        // res.send(`booking = ${booking} 
+        //     and venue id = ${venue.bookings}
+        // `)
+        req.flash('message',"successfully updated")
+        res.redirect(`/booking/bookingvenue/${req.body.bookedVenue}`)
     }
 })
 

@@ -25,7 +25,10 @@ const UserSchema = new Schema({
             ref:"Venue"
            
         }
-    ]  
+    ],
+    status:{
+        type:Boolean
+    }  
 },{
     usePushEach:true
 }
