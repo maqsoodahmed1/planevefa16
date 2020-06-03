@@ -7,7 +7,6 @@ const mongoose = require("mongoose");
 require("../models/User");
 const User = mongoose.model("users");
 
-
 exports.get_vendors = async (req, res) => {
   let vendors = await User.find().populate("createdVenues");
   if (!vendors) return res.status(400).send("No vendors found");
@@ -69,31 +68,31 @@ exports.get_referals = async (req, res) => {
       referals,
     });
   } catch (error) {
-      res.status(200).send(error.message)
+    res.status(200).send(error.message);
   }
 };
 
-exports.approve_referal = async(req,res)=>{
-    try {
-        let referal = await Referal.findById(req.params.id)
-        referal.status = 2
-        referal.save()
-        res.status(200).render("/superadmin/index")
-    } catch (error) {
-        res.status(400).send(error.message)
-    }
-}
+exports.approve_referal = async (req, res) => {
+  try {
+    let referal = await Referal.findById(req.params.id);
+    referal.status = 2;
+    referal.save();
+    res.status(200).render("/superadmin/index");
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
+};
 
-exports.reject_referal = async(req,res)=>{
-    try {
-        let referal = await Referal.findById(req.params.id)
-        referal.status = 3
-        referal.save()
-        res.status(200).render("/superadmin/index")
-    } catch (error) {
-        res.status(400).send(error.message)
-    }
-}
+exports.reject_referal = async (req, res) => {
+  try {
+    let referal = await Referal.findById(req.params.id);
+    referal.status = 3;
+    referal.save();
+    res.status(200).render("/superadmin/index");
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
+};
 
 exports.rejectRequest = async (req, res) => {
   let venue = await venueSchema.findById(req.params.venueid);
@@ -104,32 +103,32 @@ exports.rejectRequest = async (req, res) => {
 };
 
 exports.get_bookings = async (req, res) => {
-    let booking = await Booking.find({ status: true }).populate("bookedVenue");
-    let referals = await Referal.find();
-    let venues = await venueSchema.find();
-  
-    res.render("superadmin/index", {
-      bookings: booking,
-      referals,
-      venues,
-    });
-  };
+  let booking = await Booking.find({ status: true }).populate("bookedVenue");
+  let referals = await Referal.find();
+  let venues = await venueSchema.find();
 
-exports.forward_booking = async(req,res)=>{
-    let booking = await Booking.findById(req.params.id)
-    let bookedVenue = booking.bookedVenue
-    let Venue =await venueSchema.findById(bookedVenue)
-    Venue.approvedBooking.push(booking)
-    Venue.save()
-    res.status(200).send(Venue)
-}
+  res.render("superadmin/index", {
+    bookings: booking,
+    referals,
+    venues,
+  });
+};
 
-exports.reject_booking = async(req,res)=>{
-    let booking = await Booking.findById(req.params.id)
-    booking.status = false
-    booking.save()
-    res.send(booking)
-}
+exports.forward_booking = async (req, res) => {
+  let booking = await Booking.findById(req.params.id);
+  let bookedVenue = booking.bookedVenue;
+  let Venue = await venueSchema.findById(bookedVenue);
+  Venue.approvedBooking.push(booking);
+  Venue.save();
+  res.status(200).send(Venue);
+};
+
+exports.reject_booking = async (req, res) => {
+  let booking = await Booking.findById(req.params.id);
+  booking.status = false;
+  booking.save();
+  res.send(booking);
+};
 
 exports.getVenues = async (req, res) => {
   let venues = await venueSchema.find();
