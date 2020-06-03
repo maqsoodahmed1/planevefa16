@@ -1,47 +1,204 @@
-        
-        <nav class="navbar navbar-expand-lg navbar-transparent bg-primary navbar-absolute" style="border-bottom: 1px solid rgba(216, 216, 216, 0.3);;">
-            <div class="container">
-                <div class="navbar-translate">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-bar bar1"></span>
-                        <span class="navbar-toggler-bar bar2"></span>
-                        <span class="navbar-toggler-bar bar3"></span>
-                    </button>
-                    <a class="navbar-brand mr-5"  href="/index.html"><img src="https://scontent.fkhi16-1.fna.fbcdn.net/v/t1.15752-9/78576062_2214312852204385_8545864323417767936_n.png?_nc_cat=105&_nc_eui2=AeGCOuCczxThHyv3olb4AtNhesp5ul5y3nUl8fg7b7GeUz8Xc0KyR4Lgrn-5-ZWfbyOKUsxvUxP0xmvSBCAZxr5av2cA3FWaYNps6W6aDfm_gA&_nc_ohc=xJWZQprgJHIAQkFMoPLSInVAaPXZnViPLnG0apOurayOQVaZ7uO-mPDoA&_nc_ht=scontent.fkhi16-1.fna&oh=103ddef5294b3fcf0a1806c7bb9d8d9f&oe=5E6A4FD1" alt=""></a>
-                </div>
-    
-                <div class="collapse navbar-collapse">
-                    <ul class=" navbar-nav mx-auto">
-                       
-                    </ul>
-    
-                    <ul class="nav navbar-nav navbar-right">
-    
-    
-    
-    
-                                    <li class="nav">
-                                        <a class="nav-link mt-1" style="font-size: 20px; letter-spacing: 3px; font-family: inherit; font-weight: 500;"  href="./askvenue.html" >
-                                            <i class="far fa-user"></i>   Ask A Venue expert &nbsp;&nbsp;&nbsp;&nbsp;
-                                        </a>
-                                        </li>
-                                        <li class="nav">
-                                            <a class="nav-link mt-1" style="font-size: 20px; letter-spacing: 3px; font-family: inherit; font-weight: 500;"  href="/venues" >
-                                                   Venues&nbsp;&nbsp;&nbsp;&nbsp;
-                                            </a>
-                                            </li>
-    
-    
-                                        <li class="nav-item">
-                                                <a  href="#loginmodal" data-toggle="modal" style="color: white;">
-                                                    <button onclick="checkauth()"  class="btnnav" type="button" style="font-size: 20px; text-transform: uppercase;" >Venue Login</button>
-                                                  </a>
-                                        </li>
-                            </ul>
-    
-                </div>
-                
-            </div>
-        </nav>
-    
-    
+<%- include ("../partials/header") %> 
+
+<nav
+  class="navbar navbar-expand-lg navbar-transparent navbar-absolute"
+  style="border-bottom: 1px solid rgba(216, 216, 216, 0.3);"
+>
+  <div class="container">
+    <div class="navbar-translate">
+      <a
+        class="navbar-brand"
+        href="https://demos.creative-tim.com/now-ui-kit/index.html"
+        rel="tooltip"
+        title=""
+        data-placement="bottom"
+        target="_blank"
+        data-original-title="Designed by Invision. Coded by Creative Tim"
+      >
+        Now Ui Kit
+      </a>
+      <button
+        class="navbar-toggler navbar-toggler collapsed"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navigation"
+        aria-controls="navigation-index"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-bar top-bar"></span>
+        <span class="navbar-toggler-bar middle-bar"></span>
+        <span class="navbar-toggler-bar bottom-bar"></span>
+      </button>
+    </div>
+
+    <div class="navbar-collapse justify-content-end collapse" id="navigation">
+      <ul class="navbar-nav ">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              style="
+                font-size: 20px;
+                letter-spacing: 3px;
+                font-family: inherit;
+                font-weight: 500;
+              "
+              href="./askvenue.html"
+            >
+              <i class="far fa-user"></i> Ask A Venue expert
+              &nbsp;&nbsp;&nbsp;&nbsp;
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link mt-1"
+              style="
+                font-size: 20px;
+                letter-spacing: 3px;
+                font-family: inherit;
+                font-weight: 500;
+              "
+              href="/venues"
+            >
+              Venues&nbsp;&nbsp;&nbsp;&nbsp;
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#loginmodal" data-toggle="modal" style="color: white;">
+              <button
+                onclick="checkauth()"
+                class="btnnav"
+                type="button"
+                style="font-size: 20px; text-transform: uppercase;"
+              >
+                Venue Login
+              </button>
+            </a>
+          </li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</nav>
+<%- include ("../partials/scripts") %> 
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#"
+          >Home <span class="sr-only">(current)</span></a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input
+        class="form-control mr-sm-2"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+        Search
+      </button>
+    </form>
+  </div>
+</nav> -->
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#"
+          >Home <span class="sr-only">(current)</span></a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input
+        class="form-control mr-sm-2"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+        Search
+      </button>
+    </form>
+  </div>
+</nav> -->
