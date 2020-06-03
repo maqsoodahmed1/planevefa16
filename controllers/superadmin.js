@@ -113,7 +113,7 @@ exports.get_bookings = async (req, res) => {
       referals,
       venues,
     });
-  };
+};
 
 exports.forward_booking = async(req,res)=>{
     let booking = await Booking.findById(req.params.id)
