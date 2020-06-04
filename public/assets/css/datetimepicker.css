@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+.container {
+  max-width: 100%;
+}
+.bootstrap-datetimepicker-widget {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* Ab hier für dich interessant :) */
+
+.bootstrap-datetimepicker-widget table thead tr:first-child th:hover,
+.bootstrap-datetimepicker-widget table td.day:hover,
+.bootstrap-datetimepicker-widget table td.hour:hover,
+.bootstrap-datetimepicker-widget table td.minute:hover,
+.bootstrap-datetimepicker-widget table td.second:hover,
+.bootstrap-datetimepicker-widget table td span:hover {
+  /* Hintergrundfarbe für die angehoverte Auswahl */
+  border-radius: 40px;
+  box-sizing: border-box;
+  background: #ce510863;
+  color: #f96332;
+}
+.bootstrap-datetimepicker-widget table td.active,
+.bootstrap-datetimepicker-widget table td.active:hover,
+.bootstrap-datetimepicker-widget table td span.active {
+  /* Hintergrundfarbe für die aktive Auswahl */
+
+  color: #ffffff;
+}
+
+.glyphicon-chevron-left::before {
+  content: "\f053";
+  font-family: "FontAwesome";
+}
+.glyphicon-chevron-Right::before {
+  content: "\f054";
+  font-family: "FontAwesome";
+}
+
+table th.dow {
+  color: black;
+}
+
+.today {
+  background: transparent;
+}
+.bootstrap-datetimepicker-widget table td.active:hover > div,
+.bootstrap-datetimepicker-widget table td.active > div {
+  border-radius: 0%;
+}
+.bootstrap-datetimepicker-widget table td.today > div:before {
+  content: none;
+}

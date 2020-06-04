@@ -1,0 +1,87 @@
+<div class="page-header header-filter">
+    <div class="page-header-image" style="background-image: url('https://images.unsplash.com/photo-1468359601543-843bfaef291a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80');"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 ml-auto mr-auto text-center">
+                <h1 class="title"> Book a venue for your event</h1>
+                <h5 class="description">Find suitable spaces for all private and corporate events.
+                    </h4>
+                </div>
+                <div class="col-md-10 ml-auto mr-auto">
+                    <div class="card card-raised card-form-horizontal card-plain" data-background-color>
+                        <div class="card-body">
+                            <form method="POST" action="/venues/bodysearch">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                            <div class="form-group" style="margin: 0;
+                                            background: white;
+                                            border-radius: 9px;
+                                            padding: 4px;
+                                            border-radius: 9px !important;">
+                                                    <input id="inputcity" style="color: black;" name="venueCity" placeholder="Cities" list="browsers"  class="form-control" />
+                                                    <datalist id="browsers">
+                                                        <option value="Karachi">
+                                                        <option value="Lahore">
+                                                        <option value="Islamabad">
+                                                        <option value="Hyderabad">
+                                                        <option value="Quetta">
+                                                      </datalist>
+                                                  </div>
+                                                </div>
+                                    <div class="col-md-3">
+                                            <div class="form-group" style="margin: 0;
+                                            background: white;
+                                            border-radius: 9px;
+                                            padding: 4px;
+                                            border-radius: 9px !important;">
+                                                    <input  style="color: black;" id="inputtype"  name="venueType" placeholder="Type of event" list="browse"   class="form-control" />
+                                                    <datalist id="browse">
+                                                            <option value="Wedding">
+                                                            <option value="Party">
+                                                            <option value="Conference">
+                                                            <option value="Meeting">
+                                                            <option value="Seminar">
+                                                            <option value="Shows">
+                                                            <option value="Religious Event">
+                                                            <option value="Dinner/Lunch">
+                              
+                              
+                                                              
+                                                          </datalist>
+                                                      </div>
+                                         
+                                    </div>
+                                    <div class="col-md-3">
+                                        
+                                        <div class="form-group" style="margin: 0;
+                                        background: white;
+                                        border-radius: 9px;
+                                        padding: 4px;
+                                        border-radius: 9px !important;
+                                        
+                                        ">
+                                                <div class="datepicker-container">
+                                            <!-- <input type="text" placeholder="Password" class="form-control date-Picker" value="10/05/2016" autocomplete="current-password" /> -->
+                                            <!-- <input  style="color: black;" type="number" class="form-control" id="inputnumberofpeople" value="number of people"/> -->
+                                            <input id="inpcountry" style="color: black;"  name="venueCountry" list="country" placeholder="Country"  class="form-control inpt" />
+                                            
+                                            <datalist id="country">
+                                                <option value="pakistan">
+                                                <option value="USA">                                                        
+                                              </datalist>
+                                        </div>
+                                    </div>
+                                    </div>
+                                  
+                                    
+                                    <div class="col-md-3" >
+                                       <a > <button  type="submit"    style=" border-radius: 9px; padding: 14px;" class="btn btn-primary  btn-block">Search</button></a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,207 @@
+<%- include ("../partials/adminheader")%> <%- include ("../partials/adminnav")%>
+<div class="main-content">
+  <!-- Navbar -->
+
+  <div class="col-md-8">
+    <!-- Referals requests -->
+
+    <div >
+      <h1>Referal Requests</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Request From</th>
+            <th>View Request</th>
+            <th>Approve</th>
+            <th>Decline</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% referals.forEach(element => {%>
+
+          <tr>
+            <td>
+              <%= element.customerName %>
+            </td>
+            <td>
+              <button
+                class="btn btn-primary"
+                data-toggle="modal"
+                data-target=".bd-example-modal-lg2"
+              >
+                View Request
+              </button>
+            </td>
+
+            <!-- <td><button id="dlt" type="button" class="btn btn-success">Approve</button></td> -->
+            <td>
+              <button
+                type="button"
+                class="btn btn-success"
+                data-toggle="modal"
+                data-target="#approveRequest"
+              >
+                Approve
+              </button>
+            </td>
+            <!-- <td><button type="button" class="btn btn-info">Info</button></td> -->
+            <td>
+              <form action="/superadmin/rejectreferal/<%= element.id %>" method="POST">
+              <input class="btn btn-warning" type="submit" value="DECLINE" />
+            </form>
+            </td>
+          </tr>
+          <% }) %>
+
+          <tr>
+            <td>
+              Danish Ali
+            </td>
+            <td>
+              <button
+                class="btn btn-primary"
+                data-toggle="modal"
+                data-target=".bd-example-modal-lg2"
+              >
+                View Request
+              </button>
+            </td>
+
+            <!-- <td><button id="dlt" type="button" class="btn btn-success">Approve</button></td> -->
+            <td>
+              <button
+                type="button"
+                class="btn btn-success"
+                data-toggle="modal"
+                data-target="#approveRequest"
+              >
+                Approve
+              </button>
+            </td>
+            <!-- <td><button type="button" class="btn btn-info">Info</button></td> -->
+            <td>
+              <button
+                class="btn btn-warning"
+                type="button"
+                data-toggle="modal"
+                data-target="#exampleModal1"
+              >
+                Decline
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div
+        class="modal fade bd-example-modal-lg2"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="myLargeModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-body">
+              <h3>View Request</h3>
+              <p>No request found!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Approve Modal Start -->
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="approveRequest"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Approval Request
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Do You Want To Approve This Request</p>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-primary">Confirm</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Approve Modal End -->
+
+      <!-- Decline Modal Start -->
+
+      <div
+        class="modal fade"
+        id="exampleModal1"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Decline Reason</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <textarea
+                name="decline"
+                id="decline"
+                cols="50"
+                rows="8"
+                placeholder="Enter your reason here.."
+              ></textarea>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+
+              <button type="button" class="btn btn-default">Send</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Declin Modal Ends -->
+    </div>
+  </div>
+</div>
+<%- include ("../partials/adminfooter")%>

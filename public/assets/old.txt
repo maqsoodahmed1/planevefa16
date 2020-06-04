@@ -1,0 +1,57 @@
+
+    
+    <nav class="navbar navbar-expand-lg navbar-transparent bg-primary navbar-absolute">
+            <div class="container">
+                <div class="navbar-translate">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-bar bar1"></span>
+                        <span class="navbar-toggler-bar bar2"></span>
+                        <span class="navbar-toggler-bar bar3"></span>
+                    </button>
+                    <a class="navbar-brand" href="#pablo"><h3>PlanEve</h3></a>
+                </div>
+    
+                <div class="collapse navbar-collapse">
+                    <ul class=" navbar-nav mx-auto">
+                       
+                    </ul>
+    
+                    <ul class="nav navbar-nav navbar-right">
+                            <li class="nav-item ">
+                                    <a style="font-size: 17px;" class="nav-link" href="./home.html">
+                                        Home
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" style="font-size: 17px;" href="./venues.html">
+                                        Venues
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" style="font-size: 17px;" href="#loginmodal" data-toggle="modal">
+                                        Login
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" style="font-size: 17px;" href="./pricing.html">
+                                            Pricing
+                                    </a>
+                                </li>
+                            
+                                <li class="nav-item">
+                                    <a class="nav-link" style="font-size: 17px;"  href="#myModal" data-toggle = 'modal'>
+                                        Contact Us
+                                    </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" style="font-size: 17px;"  href="./askvenue.html" >
+                                           Ask Venue expert
+                                        </a>
+                                        </li>
+                            </ul>
+                </div>
+            </div>
+        </nav>
+    
+    
+         
