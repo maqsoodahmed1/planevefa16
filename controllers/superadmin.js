@@ -13,7 +13,6 @@ exports.get_vendors = async (req, res) => {
   res.status(200).render("superadmin/vendors", {
     vendors,
   });
-  // res.send(vendors)
 };
 
 exports.delete_vendor = async (req, res) => {
@@ -21,7 +20,6 @@ exports.delete_vendor = async (req, res) => {
     let vendor = await User.findById(req.params.id);
     vendor.status = false;
     vendor.save();
-    // res.status(200).send("Vendor Deleted");
     res.status(200).redirect("/superadmin/vendors")
   } catch (error) {
     res.status(400).send(error.message);
@@ -32,7 +30,7 @@ exports.requested_venues = async (req, res) => {
   try {
     let requestedVenues = await venueSchema.find({ status: 1 });
     if (!requestedVenues) return res.status(200).send("No requests");
-    res.status(200).render("/superadmin/index", {
+    res.status(200).render("superadmin/venuerequests", {
       requestedVenues: requestedVenues,
     });
   } catch (error) {
@@ -45,7 +43,7 @@ exports.approve_requested_venue = async (req, res) => {
     let requestedVenue = await venueSchema.findById(req.params.id);
     requestedVenue.status = 2;
     requestedVenue.save();
-    res.status(200).render("/superadmin/index");
+    res.status(200).redirect("/superadmin/requestedvenues");
   } catch (error) {
     res.status(400).send(error.message);
   }
@@ -56,7 +54,7 @@ exports.reject_requested_venue = async (req, res) => {
     let requestedVenue = await venueSchema.findById(req.params.id);
     requestedVenue.status = 3;
     requestedVenue.save();
-    res.status(200).render("/superadmin/index");
+    res.status(200).redirect("/superadmin/requestedvenues");
   } catch (error) {
     res.status(400).send(error.message);
   }
@@ -98,11 +96,9 @@ exports.reject_referal = async (req, res) => {
 
 exports.delete_Venue = async (req, res) => {
   let venue = await venueSchema.findById(req.params.venueid);
-  venue.status = false;
+  venue.status = 3;
   await venue.save();
   res.redirect('/superadmin/getvenues')
-  // res.render('superadmin/index')
-  // res.send(venue);
 };
 
 exports.get_bookings = async (req, res) => {
@@ -117,12 +113,6 @@ exports.get_bookings = async (req, res) => {
   });
 };
 
-//   res.render("superadmin/index", {
-//     bookings: booking,
-//     referals,
-//     venues,
-//   });
-// };
 
 exports.forward_booking = async (req, res) => {
   let bookings = await Booking.find({ status: true }).populate("bookedVenue");
@@ -136,11 +126,7 @@ exports.forward_booking = async (req, res) => {
   booking.save()
   Venue.approvedBooking.push(booking._id);
   Venue.save();
-  // res.render('superadmin/bookingrequests',{
-  //   bookings:bookings
-  // })
   res.redirect('/superadmin/booking')
-  // res.status(200).send(Venue.approvedBooking);
 };
 
 exports.reject_booking = async (req, res) => {
@@ -149,11 +135,10 @@ exports.reject_booking = async (req, res) => {
   booking.request = false;
   booking.save();
   res.redirect('/superadmin/booking')
-  // res.send(booking);
 };
 
 exports.getVenues = async (req, res) => {
-  let venues = await venueSchema.find({status:true});
+  let venues = await venueSchema.find({status:2});
   res.render("superadmin/allvenues", {
     requestedVenues: venues,
   });
