@@ -433,30 +433,17 @@
                       <img src="https://www.greenleafservices.com/wp-content/uploads/2016/11/venues-slide-2.jpg" style="width:100%">
                       <img src="https://omg.imgix.net/images/2018/03/venues-barns.jpg" style="width:100%">
                       <img src="https://media-api.xogrp.com/images/1f315b1e-2cb9-11e5-9816-22000aa61a3e~rs_729.h" style="width:100%">
-                     
+                      <% venues.venueGallery.forEach(element => { %>
+                           
+                        <!-- <p style="font-size: 12px; margin-top: -15px;"><i class="fas fa-check"></i><%= element%></p> -->
+                      <img src= <%= element %> style="width:100%">
+
+                        <% })%>
+                    
                       
                     </div>
                     <br>
-                    <div class="column">
-                          
-                            <img src="https://www.greenleafservices.com/wp-content/uploads/2016/11/venues-slide-2.jpg" style="width:100%">
-                            <img src="https://omg.imgix.net/images/2018/03/venues-barns.jpg" style="width:100%">
-                            <img src="https://media-api.xogrp.com/images/1f315b1e-2cb9-11e5-9816-22000aa61a3e~rs_729.h" style="width:100%">
-                            
-                    </div> 
-                    <br>
-                    <div class="column">
-                            <img src="https://www.greenleafservices.com/wp-content/uploads/2016/11/venues-slide-2.jpg" style="width:100%">
-                            <img src="https://omg.imgix.net/images/2018/03/venues-barns.jpg" style="width:100%">
-                            <img src="https://media-api.xogrp.com/images/1f315b1e-2cb9-11e5-9816-22000aa61a3e~rs_729.h" style="width:100%">
-                            
-                    </div> 
-                    <div class="column">
-                            <img src="https://www.greenleafservices.com/wp-content/uploads/2016/11/venues-slide-2.jpg" style="width:100%">
-                            <img src="https://omg.imgix.net/images/2018/03/venues-barns.jpg" style="width:100%">
-                            <img src="https://media-api.xogrp.com/images/1f315b1e-2cb9-11e5-9816-22000aa61a3e~rs_729.h" style="width:100%">
-                            
-                    </div> 
+                    
                 </div>
 
                  <button class="btn btn-primary">See More</button>

@@ -280,6 +280,8 @@
                                    <input type="text" id="venue-postcode" name="venuepostcode" placeholder="Postcode" class="form-control mb-2" />
                                    <input type="text" id="venue-nearest" name="venuenearest" enctype="multipart/form-data" placeholder="Nearest Transport Link" class="form-control mb-2" />
                                    <input type="file" id="venue-image" name="photo" placeholder="Choose image"  class="form-control mb-2" />
+                                   <!-- <input type="file" id="venue-image" name="myFiles" placeholder="Choose images"  class="form-control mb-2" multiple /> -->
+
 
                                 </div>
                               </div>
@@ -529,24 +531,84 @@
                                                             </label>
                                                           </div>
                                   
-                       
+                                                          <!-- <form id="formdata1"> -->
+                                                            <label id="lbl"> Upload venue images
+                                                  <input class="form-control" id="browse" type="file"  multiple>
+                                                  </label>
+                                                        <div class="form-group">
+                                                          <!-- <button onclick="saveImages()" class="btn btn-primary">Submit</button> -->
+                                                          <input type="button" class="btn btn-primary" onclick="saveImages()" value="upload">
+                                                        </div>
+                                                      <!-- </form> -->
                          
-                                  <div class="row container">
-                                      <label for="" class="ml-2 mb-auto"></label>
-                                      <button type="submit" class="btn btn-success ml-auto" >Save Details</button>
+                                  <div class="row container" id="submitButton">
+                                      <!-- <label for="" class="ml-2 mb-auto"></label> -->
+                                      <!-- <button type="submit" class="btn btn-success ml-auto disabled" style="cursor: not-allowed;" >Save Details</button> -->
                                       </div>
                          
+                                      <input  name = 'multipleimage' id = 'multipleimages' value = "" style="display: none;">
 
                       </div>
                     </div>
                   </div>
             </div>
           </form>
+
+     
+    </div>
           </div>
         </div>
       </div>
       
+      <script>
+        // var postform = document.getElementById('formdata1')
+// postform.addEventListener("submit",submit)
 
+
+
+async function saveImages(e)
+{	
+	
+// e.preventDefault();
+
+var img = document.getElementById('browse');
+var multipleimages = document.getElementById('multipleimages');
+		var images = [];
+	var lp = img.files.length;
+		const name1 = Math.random().toString();
+	try{
+
+	var images = []
+	var likeposts = [];
+		for(var i = 0;i<lp;i++){
+		var rand = Math.random().toString();
+		const imageRef = firebase
+		.storage()
+		.ref()
+		.child(`images/${name1}/${rand}.png`);
+		
+
+ await imageRef
+			.put(img.files[i])
+			var link = await  imageRef.getDownloadURL();
+			images.push(link)
+	
+  }
+  multipleimages.value = images
+  document.getElementById('submitButton').innerHTML = '<button type="submit" class="btn btn-success ml-auto " " >Save Details</button>'
+  console.log('images=>',images)
+	}
+	catch(e)
+	{
+		console.log(e.message)
+	}
+
+
+}
+
+
+
+      </script>
 
               
 
@@ -581,7 +643,36 @@
       </footer>
     </div>
   </div>
+
+
+  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-storage.js"></script>
+
+<script>
+var firebaseConfig = {
+    apiKey: "AIzaSyDEsat59X4Tzs2ZpM7qY_BswXWDQZHZz4E",
+    authDomain: "planeveimages.firebaseapp.com",
+    databaseURL: "https://planeveimages.firebaseio.com",
+    projectId: "planeveimages",
+    storageBucket: "planeveimages.appspot.com",
+    messagingSenderId: "839810385413",
+    appId: "1:839810385413:web:a7d0ae9b3533754f8dbe6c",
+    measurementId: "G-W1FFK2HGP9"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+</script>
+
+
   <script>
+
+
+
+
+
+
 
     addfeatures = () =>{
     var element = document.getElementById('featuretext').value;
@@ -615,23 +706,12 @@
   </script>
   <script src="/assets/js/argon.min.js"></script>
   <script src="/routes/venues.js"></script>
-  
-  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
-  
 
-  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-storage.js"></script>
+  
 
   
   
-  <script src="../../../firebase/configuration.js"></script>
-<script src="../../../firebase/helper.js"></script>
-<script src="../../../firebase/signout.js"></script>
-<script src="../../../firebase/login.js"></script>
-<script src="../../../firebase/avatardetails.js"></script>
-<script src="../../../firebase/logout.js"></script>
-<script src="../../../firebase/referaldata.js"></script>
+
 <!-- <script>
 
 window.addEventListener('load',auth)

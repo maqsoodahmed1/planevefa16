@@ -14,8 +14,8 @@ const venueInfo = mongoose.model('Venue',new Schema({
     image:{
         type:String
     },
-    venueAddress:{
-        type:String
+    venueGallery:{
+        type:Array
     },
     venueAddress2:{
         type:String
@@ -91,6 +91,7 @@ validateSchema = (venue) =>{
             venueDescription:joi.string().min(5).max(25).required(),
             numberOfPeople:joi.string().min(5).max(25).required(),
             image:joi.string().min(5).required(),
+
 
     }
 

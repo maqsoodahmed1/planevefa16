@@ -5,6 +5,19 @@ const {venueSchema,validateVenue} = require('../models/venueinfo')
 const mongoose = require('mongoose')
 require('../models/User');
 const User = mongoose.model('users');
+const multerr = require('multer');
+fs = require('fs-extra')
+
+var storag = multerr.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + '-' + Date.now())
+  }
+})
+
+var uploads = multerr({ storag: storag })
 
 
 exports.body_search = async (req, res) => {
@@ -140,6 +153,9 @@ exports.get_venue_by_category = async(req,res)=>{
   req.body.ownMusic ? allowedEvents.push("Own Music") : req.body.ownMusic=false
   req.body.birthdayParties ? allowedEvents.push("Birthday Parties") : req.body.birthdayParties=false 
   req.body.weddings ? allowedEvents.push("Weddings") : req.body.weddings=false
+
+  let imagesGallery = req.body.multipleimage
+  imagesGallery = imagesGallery.split(',')
   
 
         const venue = new venueSchema ({
@@ -158,7 +174,8 @@ exports.get_venue_by_category = async(req,res)=>{
           image:file,
           features,
           allowedEvents,
-          status:false
+          status:false,
+          venueGallery:imagesGallery
         })
         const userid = req.user._id
        
@@ -170,6 +187,7 @@ exports.get_venue_by_category = async(req,res)=>{
             await user.save()
             await venue.save()
             console.log(user)
+            console.log('images array',req.body.multipleimage)
             res.send(venue)
 
            
