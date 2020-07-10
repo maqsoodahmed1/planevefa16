@@ -13,8 +13,10 @@
             <th>Delete</th>
             <th>Details</th>
           </tr>
+          <% vendors.forEach(element => {%>
+
           <tr>
-            <td>Maqsood Ahmed</td>
+            <td><%= element.name %></td>
 
             <td>
               <button
@@ -30,9 +32,10 @@
             </td>
 
             <td>
-              <button id="dlt" type="button" class="btn btn-danger">
-                Delete
-              </button>
+              <form action="/superadmin/deletevendor/<%= element.id %>" method="POST">
+                <input class="btn btn-warning" type="submit" value="DELETE" />
+
+            </form>
             </td>
 
             <td>
@@ -46,6 +49,8 @@
               </button>
             </td>
           </tr>
+          <% }) %>
+
           <tr>
             <td>Danish Ali</td>
 

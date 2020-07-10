@@ -5,7 +5,7 @@
   <div class="col-md-8">
     <!-- Referals requests -->
 
-    <div class="tab-pane" id="tab4">
+    <div >
       <h1>Referal Requests</h1>
       <table>
         <thead>
@@ -46,14 +46,9 @@
             </td>
             <!-- <td><button type="button" class="btn btn-info">Info</button></td> -->
             <td>
-              <button
-                class="btn btn-warning"
-                type="button"
-                data-toggle="modal"
-                data-target="#exampleModal1"
-              >
-                Decline
-              </button>
+              <form action="/superadmin/rejectreferal/<%= element.id %>" method="POST">
+              <input class="btn btn-warning" type="submit" value="DECLINE" />
+            </form>
             </td>
           </tr>
           <% }) %>

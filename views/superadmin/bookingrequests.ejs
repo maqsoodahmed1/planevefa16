@@ -1,4 +1,6 @@
-<%- include ("../partials/adminheader")%> <%- include ("../partials/adminnav")%>
+<%- include ("../partials/adminheader")%> 
+<%- include ("../partials/adminnav")%>
+
 <div class="main-content">
   <!-- Navbar -->
 
@@ -56,9 +58,35 @@
           <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#forwardRequest">
               Forward Request
             </button></td>
+            <!-- Approve Modal Start -->
+          <!-- Modal -->
+          <div class="modal fade" id="forwardRequest" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Forward Request</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>Do You Want To Forward This Request <%= element._id%> </p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <form action="/superadmin/forwardbooking/<%= element._id %>" method="POST">
+                <button type="submit" class="btn btn-primary">Forward</button>
+              </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Approve Modal End -->
+
   
           <td>
-            <form action="/superadmin/rejectrequest/<%= element._id %>" method="POST">
+            <form action="/superadmin/rejectbooking/<%= element._id %>" method="POST">
   
               <input class="btn btn-warning" type="submit" value="REJECT REQUEST" />
             </form>
@@ -71,30 +99,7 @@
   
           </tbody>
           </table>
-          <!-- Approve Modal Start -->
-          <!-- Modal -->
-          <div class="modal fade" id="forwardRequest" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Forward Request</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <p>Do You Want To Forward This Request</p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Forward</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Approve Modal End -->
-  
+          
           <!-- Decline Modal Start -->
   
           <div class="modal fade" id="rejectRequest" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
