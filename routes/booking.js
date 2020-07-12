@@ -28,6 +28,7 @@ router.post('/booking',async(req,res)=>{
         _.pick(req.body,["bookedVenue","dateOfViewing","fullName","emailAddress","PhoneNumber","eventType","eventDate","numberOfGuests"])
     )
 
+    booking.request = true
  
 
        
@@ -35,7 +36,7 @@ let transporter = nodemailer.createTransport({
     service:'gmail',
     auth:{
         user:'maqsooddbaloch@gmail.com',
-        pass:'benellitnt150'
+        pass:'benellitnt150i'
     }
 
 })
