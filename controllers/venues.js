@@ -1,10 +1,28 @@
 const express = require("express");
 const router = express.Router();
+// const { upload } = require("../routes/upload");
+// const { venueSchema, validateVenue } = require("../models/venueinfo");
+// const mongoose = require("mongoose");
+// require("../models/User");
+// const User = mongoose.model("users");
 const { upload } = require("../routes/upload");
 const { venueSchema, validateVenue } = require("../models/venueinfo");
 const mongoose = require("mongoose");
 require("../models/User");
 const User = mongoose.model("users");
+const multerr = require("multer");
+fs = require("fs-extra");
+
+var storag = multerr.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "uploads");
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + "-" + Date.now());
+  },
+});
+
+var uploads = multerr({ storag: storag });
 
 exports.body_search = async (req, res) => {
   try {
@@ -172,6 +190,9 @@ exports.add_venue = (req, res) => {
           ? allowedEvents.push("Weddings")
           : (req.body.weddings = false);
 
+        let imagesGallery = req.body.multipleimage;
+        imagesGallery = imagesGallery.split(",");
+
         const venue = new venueSchema({
           venueName: req.body.venuename,
           venueType: req.body.venuetype,
@@ -189,6 +210,7 @@ exports.add_venue = (req, res) => {
           features,
           allowedEvents,
           status: false,
+          venueGallery: imagesGallery,
         });
         const userid = req.user._id;
 
@@ -199,6 +221,7 @@ exports.add_venue = (req, res) => {
             await user.save();
             await venue.save();
             console.log(user);
+            console.log("images array", req.body.multipleimage);
             res.send(venue);
           } catch (error) {
             console.log(error.message);
