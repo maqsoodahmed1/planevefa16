@@ -434,21 +434,24 @@
                 
                 <div class="row">
                       <% venues.venueGallery.forEach(element => { %>
-                           
+                            
                     <div class="col-md-3 col-sm-6">
-                        <div class="img-thumbnail">
-                            <img src= <%= element %> >
+                        <div >
+                        
+                        <ul class="gallery" style="padding: 0px; margin: 0px;">
+                            <li  style="list-style-type:none;">
+                                <img src= <%= element %> onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+                            </li>
+                        </ul>
+                        
                         </div>
+                        <br>  
                     </div>
                         <% })%>
-                    
-                      
-                    
-                    <br>
-                    
                 </div>
 
-                 <button class="btn btn-primary">See More</button>
+                 <button class=" more btn btn-primary">Show More</button>
+                 <button class=" less btn btn-primary">Show Less</button>
 
                   </div>
 
@@ -834,6 +837,9 @@
             nowuiKit.initContactUsMap();
         });
     </script>
+    
+    <script src="/assets/js/onevenue.js" type="text/javascript"></script>
+    <script src="/public/assets/js/onevenue.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
       
