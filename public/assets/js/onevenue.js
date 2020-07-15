@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $(".gallery li:lt(2)").show();
+  $(".gallery li:lt(3)").show();
   $(".less").hide();
   var items = 8;
   var shown = 3;
@@ -10,6 +10,7 @@ $(document).ready(function () {
       $(".gallery li:lt(" + shown + ")").show(300);
     } else {
       $(".gallery li:lt(" + items + ")").show(300);
+      s;
       $(".more").hide();
     }
   });
