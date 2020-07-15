@@ -209,7 +209,7 @@ exports.add_venue = (req, res) => {
           image: file,
           features,
           allowedEvents,
-          status: false,
+          status: 1,
           venueGallery: imagesGallery,
         });
         const userid = req.user._id;

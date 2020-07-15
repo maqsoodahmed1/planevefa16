@@ -8,7 +8,7 @@ require("../models/User");
 const User = mongoose.model("users");
 
 exports.get_vendors = async (req, res) => {
-  let vendors = await User.find({status:true}).populate("createdVenues");
+  let vendors = await User.find().populate("createdVenues");
   if (!vendors) return res.status(400).send("No vendors found");
   res.status(200).render("superadmin/vendors", {
     vendors,
@@ -102,10 +102,10 @@ exports.delete_Venue = async (req, res) => {
 };
 
 exports.get_bookings = async (req, res) => {
-  let booking = await Booking.find({ request: true }).populate("bookedVenue");
+  let booking = await Booking.find({request:true}).populate("bookedVenue");
   let referals = await Referal.find();
   let venues = await venueSchema.find();
-
+// console.log('boookig=>',venues)
   res.render("superadmin/bookingrequests", {
     bookings: booking,
     // referals,
