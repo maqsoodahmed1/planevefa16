@@ -7,7 +7,10 @@ router.get("/", (req, res) => {
 });
 
 router.get("/sample", (req, res) => {
-  res.render("admin/sample");
+  
+  res.render("admin/sample",{
+    userName:req.user.name
+  });
 });
 router.get("/enquiries", (req, res) => {
   res.render("admin/enquiries");

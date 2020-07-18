@@ -29,10 +29,21 @@
           <div class="form-group col-md-12 " style="margin-left:0px;margin-right: 0px;  width: 27.5%;">
             <label for="inputPassword4">password</label>
             <input type="password" name="password" id = 'lpass' class="form-control inputborder" id="inputPassword4">        
-            <input style=" text-decoration: none; " type="submit" class="btn btn-primary col-md-12" value="save">
+            <input style=" text-decoration: none; " onclick="check()" type="submit" class="btn btn-primary col-md-12" value="save">
           </div>
         </div>
        
+        <script>
+          function check(){
+            const email = document.getElementById('lemail')
+            const password = document.getElementById('lpass')
+            if(email == 'admin@gmail.com' && password == 'admin1234')
+            {
+              window.location.href("http://localhost:2000/superadmin")
+              console.log('the admin is logged in')
+            }
+          }
+        </script>
         <a href="#forgetmodal"  data-dismiss="modal" data-toggle='modal'>forget password?</a>
         </br>
         <a href="#createaccountmodal" data-dismiss="modal"  data-toggle='modal'>create account?</a>

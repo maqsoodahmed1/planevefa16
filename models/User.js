@@ -29,6 +29,9 @@ const UserSchema = new Schema({
     status:{
         type:Boolean
     }  
+    ,role:{
+        type:Number
+    }
 },{
     usePushEach:true
 }

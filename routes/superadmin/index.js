@@ -19,6 +19,11 @@ router.post("/rejectbooking/:id", superAdminController.reject_booking);
 router.post('/checkingpostrequest',(req,res)=>{
   res.send('its working')
 })
+router.post('/loginadmin',(req,res)=>{
+  const email = req.body.email
+  const password = req.body.password
+  email == 'admin@planeve.com' && password == 'admin123' ? res.status(200).send('loginsuccess') : res.status(400).send('invalid login')
+})
 
 // superadming routing
 router.get("/vendor", (req, res) => {

@@ -20,13 +20,17 @@ router.get('/register', (req, res) => {
 
 // Login Form POST
 router.post('/login', (req, res, next) => {
+    // console.log('the user =>',req.user)
     passport.authenticate('local', {
         successRedirect: '/admin/sample',
         failureRedirect: '/',
+        
         // successMessage:'success',
         // failureMessage:'failed',
         failureFlash: true
-    })(req, res, next);
+    }
+    
+    )(req, res, next);
 });
 
 // Register Form POST
