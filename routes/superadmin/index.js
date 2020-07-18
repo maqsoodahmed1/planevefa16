@@ -9,16 +9,19 @@ router.get("/getvenues", superAdminController.getVenues);
 router.get("/vendors", superAdminController.get_vendors);
 router.post("/deletevendor/:id", superAdminController.delete_vendor);
 router.get("/requestedvenues", superAdminController.requested_venues);
-router.post("/approverequest/:id", superAdminController.approve_requested_venue);
+router.post(
+  "/approverequest/:id",
+  superAdminController.approve_requested_venue
+);
 router.post("/deleterequest/:id", superAdminController.reject_requested_venue);
 router.get("/getreferal", superAdminController.get_referals);
 router.put("/approvereferal/:id", superAdminController.approve_referal);
 router.post("/rejectreferal/:id", superAdminController.reject_referal);
 router.post("/forwardbooking/:id", superAdminController.forward_booking);
 router.post("/rejectbooking/:id", superAdminController.reject_booking);
-router.post('/checkingpostrequest',(req,res)=>{
-  res.send('its working')
-})
+router.post("/checkingpostrequest", (req, res) => {
+  res.send("its working");
+});
 
 // superadming routing
 router.get("/vendor", (req, res) => {
@@ -30,6 +33,10 @@ router.get("/requests", (req, res) => {
 });
 router.get("/venues", (req, res) => {
   res.render("superadmin/allvenues");
+});
+
+router.get("/login", (req, res) => {
+  res.render("superadmin/login");
 });
 // router.get("/referal", (req, res) => {
 //   res.render("superadmin/referals");
