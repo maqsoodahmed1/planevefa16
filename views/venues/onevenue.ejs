@@ -432,9 +432,7 @@
                     Venues Images
                 </h4>    
                 
-                
-                <div class="row">
-                      <% venues.venueGallery.forEach(element => { %>
+                    <% venues.venueGallery.forEach(element => { %>
 
                     <div class="col-md-3 col-sm-6">
                         <div >
@@ -450,6 +448,8 @@
                         <br>  
                     </div>
                         <% })%>
+                <div class="row">
+                  
                 </div>
 
                  <button class=" more btn btn-primary">Show More</button>
@@ -560,10 +560,11 @@
                         <p>From 1900$</p>
                     </div>
                     </div>
-                    <div class="row">
+                    <% allVenue.forEach(element => { %>
+                        <div class="row">
                             <div class="col-sm-6"> 
                                
-                                    <img src="https://omg.imgix.net/images/2018/03/venues-barns.jpg" alt="Rounded Image" class="rounded img-fluid">
+                                    <img src='/<%= element.image %>' alt="Rounded Image" class="rounded img-fluid">
                                     
                                 </div>
                                 <div style="margin-top: 40px;">
@@ -571,29 +572,8 @@
                                 <p>From 1900$</p>
                             </div>
                             </div>
-                            <div class="row">
-                                    <div class="col-sm-6"> 
-                                       
-                                            <img src="https://media-api.xogrp.com/images/1f315b1e-2cb9-11e5-9816-22000aa61a3e~rs_729.h" alt="Rounded Image" class="rounded img-fluid">
-                                            
-                                        </div>
-                                        <div style="margin-top: 40px;">
-                                        <a style="text-decoration: none;" href=""><h5 >View Gallery</h5></a>
-                                        <p>From 1900$</p>
-                                    </div>
-                                    </div>
-                                    <div class="row">
-                                            <div class="col-sm-6"> 
-                                               
-                                                    <img src="http://www.sandiegosfinestbartending.net/web_images/jkh-romantic-real-wedding-california-ornate-wedding-venue-decor.full.jpg" alt="Rounded Image" class="rounded img-fluid">
-                                                    
-                                                </div>
-                                                <div style="margin-top: 40px;">
-                                                <a style="text-decoration: none;" href=""><h5 >View Gallery</h5></a>
-                                                <p>From 1900$</p>
-                                            </div>
-                                            </div>
-                                                              
+                        
+                            <% })%>
                               
                       
 

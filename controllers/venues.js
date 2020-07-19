@@ -44,6 +44,12 @@ exports.body_search = async (req, res) => {
   }
 };
 
+
+// exports.ask_venue_expert = async (req,res)=>{
+//   let 
+// }
+
+
 exports.get_all_venues = async (req, res) => {
   //  let users = await User.findById(req.user._id).populate('createdVenues')
   let venues = await venueSchema.find();
@@ -59,14 +65,17 @@ exports.get_all_venues = async (req, res) => {
 exports.get_single_venue = async (req, res) => {
   let bookedDates = [];
   let venues = await venueSchema.findById(req.params.id).populate("bookings");
+  let allVenue = await venueSchema.find()
   venues.bookings.forEach((data) => {
     bookedDates.push(data.dateOfViewing);
   });
   // console.log('bookedEvents => ',bookedDates)
   // res.send(venues.bookings)
+  console.log('all venues',allVenue)
   res.render("venues/onevenue", {
+    allVenue:allVenue,
     venues: venues,
-    bookedDates,
+    bookedDates
   });
 };
 
@@ -233,3 +242,5 @@ exports.add_venue = (req, res) => {
     }
   });
 };
+
+

@@ -52,7 +52,7 @@
             aria-label="Toggle navigation"
           >
             <span class="navbar-toggler-icon"></span>
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icoKashanan"></span>
             <span class="navbar-toggler-icon"></span>
           </button>
         </div>
@@ -77,7 +77,7 @@
         </div>
     
       
-      <form class="center" style="margin-left:40px ;">
+      <!-- <form class="center" style="margin-left:40px ;"> -->
 
               <div class="separator"><h6>
                 My Event Details
@@ -88,7 +88,7 @@
         <div class="container" style="margin-left:20px;" >
           <br>
           <br>
-            <form>
+            <form action="/venues/askvenueexpert" method="POST">
               <div class="form-group ">
                 <input  list = 'inputState' class="form-control inputborder" name="eventType"  placeholder="Occasion / Event Type *">
                   <datalist id="inputState">
@@ -228,13 +228,13 @@
             </div> -->
             <div class="container"> <hr />
               
-              <form class="center" style="margin-left:40px ;">
+              <!-- <form class="center" style="margin-left:40px ;"> -->
                   <div class="separator">
                     <h6>
                       My Contact Details *
                     </h6>
                   </div>
-              </form>
+              <!-- </form> -->
               <br>
               <br>
               
@@ -265,7 +265,9 @@
             </div> -->
 
             <div class="col-md-12">
-              <button type="button" class="btn btn-primary btn-lg" style="width: 80%;" name="sendEquiry">Send My Enquiry</button>
+              <!-- <button type="submit"  class="btn btn-primary btn-lg" style="width: 80%;" >Send My Enquiry</button> -->
+        <button type="submit"  class="btn btn-primary col-md-12" >Send to Kashana</button>
+
             </div>
 
           </form>
