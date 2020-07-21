@@ -231,7 +231,8 @@ exports.add_venue = (req, res) => {
             await venue.save();
             console.log(user);
             console.log("images array", req.body.multipleimage);
-            res.send(venue);
+            // res.send(venue);
+            res.redirect('/venues')
           } catch (error) {
             console.log(error.message);
           }
