@@ -253,7 +253,7 @@
                         </div>
     
                         <h6 class="category text-primary">Design</h6>
-                        <h4 id="venuname" class="card-title">Coco Kelley</h4>
+                        <h4 id="venuname" class="card-title"><%= venues.venueName %></h4>
                         <p>
                             Amber Lewis’s interior design blog takes you inside the creative workings of her Los Angeles–based studio. Keep an eye on this website for an industry insider’s point of view.
                         </p>
@@ -440,7 +440,33 @@
                         <ul class="gallery" style="padding: 0px; margin: 0px;">
                             <li  style="list-style-type:none;">
 
-                                <img src= <%= element %> >
+                                <img src= <%= element %> data-toggle="modal" data-target="modal1" >
+                                
+                                <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                      <div class="modal-content">
+                                        <img style="    height: 150%;
+                                        width: 150%;
+                                    " src= <%= element %> data-toggle="modal" data-target="#exampleModal"> 
+            
+                                        <!-- <div class="modal-header">
+                                          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                                        </div>
+                                        <div class="modal-body">
+                                          ...
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                          <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div> -->
+                                      </div>
+                                    </div>
+                                  </div>
+                                
+                               
                             </li>
                         </ul>
                         
@@ -472,7 +498,17 @@
             border-radius: 3px; background-color: #fff; " class="container-fluid ">
                
             <div class="send-button">
-                    <a href="#pablo" style="background-color: #4e833c;" class="btn  btn-block btn-lg" ><i class="fas fa-bolt"></i> Contact Venue</a>
+                    <!-- <a href="#pablo" style="background-color: #4e833c;" class="btn  btn-block btn-lg" ><i class="fas fa-bolt"></i> Contact Venue</a>s -->
+                    <button type="button"  style="background-color: #4e833c;" class="btn  btn-block btn-lg"  data-toggle="modal" data-target=".bd-example-modal-sm"><i class="fas fa-bolt"></i> Contact Venue</button>
+
+                  </div>
+                  <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-sm">
+                      <div class="modal-content">
+                        <h1>Contact Nummber</h1>
+                        <h3>090078601</h3>
+                      </div>
+                    </div>
                   </div>
                   
                   <div class="send-button">
@@ -563,8 +599,8 @@
                     <% allVenue.forEach(element => { %>
                         <div class="row">
                             <div class="col-sm-6"> 
-                               
-                                    <img src='/<%= element.image %>' alt="Rounded Image" class="rounded img-fluid">
+
+                                    <img src='/<%= element.image %>' alt="Rounded Image" class="rounded img-fluid" data-toggle="modal" data-target="#exampleModal"> 
                                     
                                 </div>
                                 <div style="margin-top: 40px;">
@@ -572,7 +608,9 @@
                                 <p>From 1900$</p>
                             </div>
                             </div>
-                        
+                            
+                              
+                                 
                             <% })%>
                               
                       

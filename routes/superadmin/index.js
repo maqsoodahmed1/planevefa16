@@ -47,6 +47,10 @@ router.get("/venues", (req, res) => {
 router.get("/login", (req, res) => {
   res.render("superadmin/login");
 });
+
+router.post('/')
+
+
 router.post('/auth',async (req,res)=>{
   try{
   const email = req.body.email
