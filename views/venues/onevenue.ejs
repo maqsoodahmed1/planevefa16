@@ -243,7 +243,7 @@
                     <div class="col-md-6">
                         <div class="image-container image-left" style="background-image: url(<%= venues.venueGallery[0] %>)">
                             <!-- First image on the left side -->
-                            <p class="blockquote blockquote-primary">"Amber Interiors is available to assist in all aspects of a project from start to finish including consulting with Architects and Builders"
+                            <p class="blockquote blockquote-primary">"<%= venues.venueDescription %>"
                             </p>
                         </div>
                     </div>
@@ -255,7 +255,7 @@
                         <h6 class="category text-primary">Design</h6>
                         <h4 id="venuname" class="card-title"><%= venues.venueName %></h4>
                         <p>
-                            Amber Lewis’s interior design blog takes you inside the creative workings of her Los Angeles–based studio. Keep an eye on this website for an industry insider’s point of view.
+                            <%= venues.venueDescription %>
                         </p>
                     </div>
                 </div>
@@ -440,33 +440,32 @@
                         <ul class="gallery" style="padding: 0px; margin: 0px;">
                             <li  style="list-style-type:none;">
 
-                                <img src= <%= element %> data-toggle="modal" data-target="modal1" >
-                                
-                                <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                      <div class="modal-content">
-                                        <img style="    height: 150%;
-                                        width: 150%;
-                                    " src= <%= element %> data-toggle="modal" data-target="#exampleModal"> 
-            
-                                        <!-- <div class="modal-header">
-                                          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                          </button>
-                                        </div>
-                                        <div class="modal-body">
-                                          ...
-                                        </div>
-                                        <div class="modal-footer">
-                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                          <button type="button" class="btn btn-primary">Save changes</button>
-                                        </div> -->
-                                      </div>
-                                    </div>
-                                  </div>
-                                
-                               
+                                <img src= <%= element %> data-toggle="modal" data-target="#modal1">
+ <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <img style="    height: 150%;
+                            width: 150%;
+                        " src= <%= element %> data-toggle="modal" data-target="#modal1"> 
+
+                            <!-- <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              ...
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-primary">Save changes</button>
+                            </div> -->
+                          </div>
+                        </div>
+                      </div>
+                    
+                   
                             </li>
                         </ul>
                         
