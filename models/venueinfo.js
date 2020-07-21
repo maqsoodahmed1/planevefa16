@@ -88,7 +88,7 @@ validateSchema = (venue) =>{
             venueNeighborhood:joi.string().min(5).max(25).required(),
             venueType:joi.string().min(5).max(25).required(),
             venueCity:joi.string().min(5).max(25).required(),
-            venueDescription:joi.string().min(5).max(25).required(),
+            venueDescription:joi.string().min(5).max(250).required(),
             numberOfPeople:joi.string().min(5).max(25).required(),
             image:joi.string().min(5).required(),
 
