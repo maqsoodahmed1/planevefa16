@@ -233,6 +233,7 @@ exports.add_venue = (req, res) => {
             console.log("images array", req.body.multipleimage);
             // res.send(venue);
             res.redirect('/venues')
+            
           } catch (error) {
             console.log(error.message);
           }
